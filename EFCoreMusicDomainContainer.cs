@@ -6,7 +6,7 @@ namespace Grammophone.DataAccess.Tests.Domain.EntityFrameworkCore
 	/// <summary>
 	/// Entity Framework Core test domain container.
 	/// </summary>
-	public class EFCoreTestDomainContainer : EFCoreDomainContainer
+	public class EFCoreMusicDomainContainer : EFCoreDomainContainer
 	{
 		#region Construction
 
@@ -14,7 +14,7 @@ namespace Grammophone.DataAccess.Tests.Domain.EntityFrameworkCore
 		/// Create.
 		/// </summary>
 		/// <param name="options">The context options.</param>
-		public EFCoreTestDomainContainer(DbContextOptions options)
+		public EFCoreMusicDomainContainer(DbContextOptions options)
 			: base(options)
 		{
 		}
@@ -50,6 +50,7 @@ namespace Grammophone.DataAccess.Tests.Domain.EntityFrameworkCore
 
 			modelBuilder.Entity<Album>().HasKey(a => a.ID);
 			modelBuilder.Entity<Album>().Property(a => a.Name).IsRequired().HasMaxLength(200);
+			modelBuilder.Entity<Album>().HasIndex(a => a.Name).IsUnique();
 			modelBuilder.Entity<Album>()
 				.HasOne(a => a.Artist)
 				.WithMany(a => a.Albums)
@@ -72,6 +73,7 @@ namespace Grammophone.DataAccess.Tests.Domain.EntityFrameworkCore
 
 			modelBuilder.Entity<Genre>().HasKey(g => g.ID);
 			modelBuilder.Entity<Genre>().Property(g => g.Name).IsRequired().HasMaxLength(200);
+			modelBuilder.Entity<Genre>().HasIndex(g => g.Name).IsUnique();
 		}
 
 		#endregion
