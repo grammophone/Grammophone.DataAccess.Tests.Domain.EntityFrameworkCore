@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProjectGuid>{B6D7769B-7755-40EA-B78E-D2FE4993B7A2}</ProjectGuid>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyTitle>Grammophone.DataAccess.Tests.Domain.EntityFrameworkCore</AssemblyTitle>
+    <Product>Grammophone.DataAccess.Tests.Domain.EntityFrameworkCore</Product>
+    <Copyright>Copyright ©  2016</Copyright>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Grammophone.DataAccess.Tests.Domain.EntityFrameworkCore.XML</DocumentationFile>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Grammophone.DataAccess\Grammophone.DataAccess.csproj" />
+    <ProjectReference Include="..\Grammophone.DataAccess.EntityFrameworkCore\Grammophone.DataAccess.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Grammophone.DataAccess.Tests.Domain\Grammophone.DataAccess.Tests.Domain.csproj" />
+  </ItemGroup>
+</Project>
