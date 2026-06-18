@@ -58,7 +58,8 @@ namespace Grammophone.DataAccess.Tests.Domain.EntityFrameworkCore
 			modelBuilder.Entity<Album>()
 				.HasOne(a => a.Genre)
 				.WithMany(g => g.Albums)
-				.HasForeignKey(a => a.GenreID);
+				.HasForeignKey(a => a.GenreID)
+				.OnDelete(DeleteBehavior.NoAction);
 
 			modelBuilder.Entity<Track>().HasKey(t => t.ID);
 			modelBuilder.Entity<Track>().Property(t => t.Name).IsRequired().HasMaxLength(200);
@@ -69,7 +70,8 @@ namespace Grammophone.DataAccess.Tests.Domain.EntityFrameworkCore
 			modelBuilder.Entity<Track>()
 				.HasOne(t => t.Genre)
 				.WithMany(g => g.Tracks)
-				.HasForeignKey(t => t.GenreID);
+				.HasForeignKey(t => t.GenreID)
+				.OnDelete(DeleteBehavior.NoAction);
 
 			modelBuilder.Entity<Genre>().HasKey(g => g.ID);
 			modelBuilder.Entity<Genre>().Property(g => g.Name).IsRequired().HasMaxLength(200);
