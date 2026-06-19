@@ -15,7 +15,7 @@ namespace Grammophone.DataAccess.Tests.Domain.EntityFrameworkCore
 		/// </summary>
 		/// <param name="options">The context options.</param>
 		public EFCoreMusicDomainContainer(DbContextOptions options)
-			: base(options)
+			: base(options, useChangeTracking: true)
 		{
 		}
 
