@@ -66,7 +66,8 @@ namespace Grammophone.DataAccess.Tests.Domain.EntityFrameworkCore
 			modelBuilder.Entity<Track>()
 				.HasOne(t => t.Album)
 				.WithMany(a => a.Tracks)
-				.HasForeignKey(t => t.AlbumID);
+				.HasForeignKey(t => t.AlbumID)
+				.OnDelete(DeleteBehavior.NoAction);
 			modelBuilder.Entity<Track>()
 				.HasOne(t => t.Genre)
 				.WithMany(g => g.Tracks)
